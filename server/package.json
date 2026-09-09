@@ -1,0 +1,29 @@
+{
+  "name": "@sih/server",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test:pipeline": "tsx src/pipeline/testCompletePipeline.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@sih/shared": "*",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^9.9.5",
+    "pdfkit": "^0.20.2",
+    "tesseract.js": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.9",
+    "@types/pdfkit": "^0.17.6",
+    "tsx": "^4.19.3",
+    "typescript": "^5.7.2"
+  }
+}

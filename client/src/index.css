@@ -1,0 +1,292 @@
+:root {
+  /* Font Families */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Government Enforcement Authority Palette (Clean, Authoritative Slate & Ashoka Navy) */
+  --bg-app: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-muted: #e2e8f0;
+
+  --sidebar-bg: #0f172a;
+  --sidebar-hover: #1e293b;
+  --sidebar-active: #2563eb;
+  --sidebar-text: #94a3b8;
+  --sidebar-text-active: #ffffff;
+
+  --header-bg: #ffffff;
+  --header-border: #e2e8f0;
+
+  /* Typography Colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  /* Borders & Dividers */
+  --border-subtle: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --border-focus: #2563eb;
+
+  /* Brand / Authority Accents */
+  --brand-navy: #1e3a8a;
+  --brand-blue: #2563eb;
+  --brand-blue-hover: #1d4ed8;
+  --brand-saffron: #d97706;
+
+  /* Compliance & Statutory Status Tokens */
+  --status-compliant-bg: #ecfdf5;
+  --status-compliant-text: #15803d;
+  --status-compliant-border: #86efac;
+
+  --status-noncompliant-bg: #fef2f2;
+  --status-noncompliant-text: #b91c1c;
+  --status-noncompliant-border: #fca5a5;
+
+  --status-flagged-bg: #fffbeb;
+  --status-flagged-text: #b45309;
+  --status-flagged-border: #fcd34d;
+
+  --status-info-bg: #eff6ff;
+  --status-info-text: #1d4ed8;
+  --status-info-border: #93c5fd;
+
+  /* Radii */
+  --radius-xs: 3px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Subtle Crisp Shadows */
+  --shadow-card: 0 1px 3px 0 rgba(15, 23, 42, 0.08), 0 1px 2px -1px rgba(15, 23, 42, 0.06);
+  --shadow-dropdown: 0 4px 6px -1px rgba(15, 23, 42, 0.1), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
+  --shadow-modal: 0 20px 25px -5px rgba(15, 23, 42, 0.2), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
+
+  /* 3D Depth & Dimensional Elevation Tokens */
+  --perspective-stage: 1200px;
+  --perspective-card: 900px;
+  --depth-shadow-1: 0 4px 14px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --depth-shadow-2: 0 12px 28px -4px rgba(15, 23, 42, 0.12), 0 6px 12px -2px rgba(15, 23, 42, 0.06);
+  --depth-shadow-3: 0 22px 42px -6px rgba(15, 23, 42, 0.16), 0 10px 20px -4px rgba(15, 23, 42, 0.08);
+  --depth-bevel: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 -1px 0 rgba(15, 23, 42, 0.05);
+
+  /* Holographic & Optical Laser Tokens */
+  --laser-cyan: #0284c7;
+  --laser-glow: 0 0 14px rgba(2, 132, 199, 0.7), 0 0 28px rgba(2, 132, 199, 0.35);
+  --optic-grid: rgba(37, 99, 235, 0.07);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Base button and input resets */
+button {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input, select, textarea {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 1px;
+}
+
+/* Custom Scrollbar for Government High-Density Tables */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-subtle);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-xs);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* 3D Utility Classes & Keyframes */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes laserSweep {
+  0% {
+    top: 2%;
+    opacity: 0.9;
+  }
+  50% {
+    top: 96%;
+    opacity: 1;
+  }
+  100% {
+    top: 2%;
+    opacity: 0.9;
+  }
+}
+
+@keyframes opticPulse {
+  0%, 100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 0.85;
+  }
+}
+
+@keyframes floatSubtle {
+  0%, 100% {
+    transform: translateY(0px) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-3px) rotateX(1deg);
+  }
+}
+
+/* 3D Perspective Containers */
+.perspective-container {
+  perspective: var(--perspective-stage);
+  transform-style: preserve-3d;
+}
+
+.depth-card-interactive {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.22s ease;
+  transform: translateZ(0);
+}
+
+.depth-card-interactive:hover {
+  transform: translateY(-3px) translateZ(8px);
+  box-shadow: var(--depth-shadow-2);
+}
+
+/* Holographic Inspection Scanner Stage Grid */
+.scanner-grid-bg {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, var(--optic-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--optic-grid) 1px, transparent 1px);
+}
+
+.scanner-laser-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--laser-cyan) 15%, #38bdf8 50%, var(--laser-cyan) 85%, transparent 100%);
+  box-shadow: var(--laser-glow);
+  z-index: 10;
+  pointer-events: none;
+  animation: laserSweep 2.8s ease-in-out infinite;
+}
+
+/* Reduced Motion Safety Guard */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .scanner-laser-line {
+    display: none !important;
+  }
+  .depth-card-interactive:hover {
+    transform: none !important;
+  }
+}
+
+/* ==========================================================================
+   WCAG 2.1 AA Accessibility Standards
+   ========================================================================== */
+
+/* Universal Focus Visible Ring for Keyboard & Switch-Device Navigation */
+:focus-visible {
+  outline: 2px solid var(--brand-blue) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* High Contrast Selection */
+::selection {
+  background-color: #bfdbfe;
+  color: #0f172a;
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Accessible Skip-To-Main-Content Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background-color: var(--brand-navy);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  z-index: 9999;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  text-decoration: none;
+  box-shadow: var(--shadow-modal);
+  transition: top 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
